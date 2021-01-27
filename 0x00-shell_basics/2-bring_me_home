@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ..
+echo "We should be back one directory already"
+pwd 
