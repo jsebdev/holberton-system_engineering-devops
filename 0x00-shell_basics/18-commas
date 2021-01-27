@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -pa | tr '\n' ', '
+#ls -pa | tr '\n' ', '
+ls -pam
