@@ -1,0 +1,2 @@
+#!/bin/bash
+chmoqd a+x $(find . -type d)
