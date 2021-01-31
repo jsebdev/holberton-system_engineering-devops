@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -f 1 | sort | uniq -c | sort -r | head -n 11 | sed 's/^    //' | cut -d \  -f 2
