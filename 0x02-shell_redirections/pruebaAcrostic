@@ -1,0 +1,8 @@
+#!/bin/bash
+#sed 's/\(.\)[^ ]* */\1/g' | sed 's/\(.\)[^ ]* */\1/g' | tr -d "\n" | sed 'a\'
+
+#sed 's/\(^.\).*/\1/' | tr -d "\n" | sed 'a\'
+
+#sed 's/\(^.\).*/\1/' | sed ':a;N;$!ba;s/\n//g'
+
+sed 's/\(^.\).*/\1/'| sed 's/^$/ /' | sed ':a;N;$!ba;s/\n//g' | cat -E
