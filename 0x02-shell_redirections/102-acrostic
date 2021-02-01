@@ -1,3 +1,2 @@
 #!/bin/bash
-#sed -e 's/\(^.\).*/\1/;s/^$/ /' | tr -d '\n' | sed 'a\'
 cut -b 1 | tr -d '\n' | paste 
