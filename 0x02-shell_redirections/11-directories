@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((`find -type d | wc -l`-1))
+find -type d | grep '/' | wc -l
