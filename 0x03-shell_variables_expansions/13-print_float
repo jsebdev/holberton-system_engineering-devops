@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "%s.%s\n" $(echo $NUM | cut -d . -f 1) $(printf "%s00" $(echo $NUM | cut -s -d . -f 2) | cut -c 1-2)
