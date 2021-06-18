@@ -4,11 +4,11 @@
 for ((i=1;i<=100;i++))
 do
     if ((i%3 == 0 && i%5 == 0)); then
-        echo "FIZZBUZZ"
+        echo "FizzBuzz"
     elif ((i%3 == 0)); then
-        echo "FIZZ"
+        echo "Fizz"
     elif ((i%5 == 0)); then
-        echo "BUZZ"
+        echo "Buzz"
     else
         echo "$i"
     fi
