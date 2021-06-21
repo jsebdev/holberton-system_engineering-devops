@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script stops 4-to_infinity_and_beyond process.
+
+id=$(ps aux | awk '/4-to_infinity_and_beyond/ {print}' | awk 'NR == 1 {print $2}')
+
+echo "$id"
+
+pkill -f 4-to_infinity_and_beyond
