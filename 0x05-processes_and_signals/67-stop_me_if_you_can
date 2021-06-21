@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script stops 4-to_infinity_and_beyond process.
+
+ps aux | awk '/7-highlander/ {print}' | awk 'NR == 1 {print $2}'
+pkill -f 7-highlander
