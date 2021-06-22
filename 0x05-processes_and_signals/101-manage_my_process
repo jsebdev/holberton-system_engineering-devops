@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# This script manages manage_my_process
+# Arguments can be start or stop or restart
+
+case "$1" in
+start)
+    echo "manage_my_process started"
+    ./manage_my_process &
+    sudo touch /var/run/my_process.pid
+    echo $! >/var/run/my_process.pid
+    ;;
+stop)
+    read -r line </var/run/my_process.pid
+    kill "$line"
+    sudo rm /var/run/my_process.pid
+    echo "manage_my_process stopped"
+    ;;
+restart)
+    read -r line </var/run/my_process.pid
+    kill "$line"
+    sudo rm /var/run/my_process.pid
+    ./manage_my_process &
+    sudo touch /var/run/my_process.pid
+    echo $! >/var/run/my_process.pid
+    echo "manage_my_process restarted"
+    ;;
+*)
+    echo "Usage: manage_my_process {start|stop|restart}"
+    ;;
+esac
