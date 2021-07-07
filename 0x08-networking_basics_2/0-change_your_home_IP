@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This script sets localhost to 127.0.0.2 and facebook.com to 8.8.8.8
+
+cp /etc/hosts ~/hosts.new
+sudo sed -i 's/127.0.0.1\tlocalhost/127.0.0.2\tlocalhost/' ~/hosts.new
+echo -e "8.8.8.8\tfacebook.com" >> ~/hosts.new
+sudo cp -f ~/hosts.new /etc/hosts
+rm ~/hosts.new
