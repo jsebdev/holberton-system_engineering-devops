@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+name="holberton"
+passphrase="betty"
+ssh-keygen -b 4096 <<EOF
+$name
+$passphrase
+EOF
