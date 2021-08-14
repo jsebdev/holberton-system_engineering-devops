@@ -1,4 +1,5 @@
-file { 'holberton':
+# Create file holberton at /tmp 
+file {'holberton':
   path    => '/tmp/holberton',
   mode    => '0744',
   group   => 'www-data',
