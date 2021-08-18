@@ -7,11 +7,7 @@ apt -y install nginx
 
 rm /var/www/html/*
 echo "Holberton School" >> /var/www/html/index.html
-service nginx restart
 
-redirect_line="server {
-	location /redirect_me{
-		rewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 redirect;
-	}
-"
-sed -i "s/^server\s{/$redirect_line/" /etc/nginx/sites-available/default
+redirectline="server {\n\tlocation \/redirect_me{\n\t\trewrite ^\/redirect_me$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 redirect;\n\t}"
+sed -i "s/^server\s{/$redirectline/1" /etc/nginx/sites-available/default
+#service nginx restart
