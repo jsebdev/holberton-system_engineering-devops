@@ -8,6 +8,6 @@ sudo apt -y install nginx
 sudo rm /var/www/html/*
 sudo echo "Holberton School" >> /var/www/html/index.html
 
-redirectline="server {\n\tlocation \/redirect_me{\n\t\trewrite ^\/redirect_me$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 redirect;\n\t}"
+redirectline="server {\n\tlocation \/redirect_me{\n\t\trewrite ^\/redirect_me$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\n\t}"
 sudo sed -i "s/^server\s{/$redirectline/1" /etc/nginx/sites-available/default
 sudo service nginx restart
