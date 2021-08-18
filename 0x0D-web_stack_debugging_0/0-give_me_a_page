@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Run this script to fix the issue on holberton's project 265
+sudo service apache2 reload
