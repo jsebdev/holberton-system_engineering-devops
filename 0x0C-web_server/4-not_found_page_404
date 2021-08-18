@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#install nginx and set a random redirection 
+#install nginx, set a random redirection and set a 404 error page
 sudo usermod -aG sudo $(whoami)
 
 apt -y update
@@ -10,4 +10,9 @@ echo "Holberton School" > /var/www/html/index.html
 
 redirectline="server {\n\tlocation \/redirect_me{\n\t\trewrite ^\/redirect_me$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\n\t}"
 sed -i "s/^server\s{/$redirectline/1" /etc/nginx/sites-available/default
+
+echo "Ceci n'est pas une page" > /var/www/html/error404.html
+error404line="server {\n\terror_page 404 \/error404.html;"
+sed -i "s/^server\s{/$error404line/1" /etc/nginx/sites-available/default
 service nginx restart
+
