@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #install nginx
-sudo usermod -aG sudo $(whoami)
+#sudo usermod -aG sudo $(whoami)
 
-apt -y update
-apt -y install nginx
+sudo apt -y update
+sudo apt -y install nginx
 
 rm /var/www/html/*
-echo "Holberton School" >> /var/www/html/index.html
-service nginx restart
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx restart
