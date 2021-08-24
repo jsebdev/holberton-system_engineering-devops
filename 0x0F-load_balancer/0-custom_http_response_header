@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#install nginx
+sudo usermod -aG sudo "$(whoami)"
+
+apt -y update
+apt -y install nginx
+
+mkdir -p /var/www/holberton
+rm -f /var/www/holberton/*
+echo "Holberton School" > /var/www/holberton/index.html
+echo "Ceci n'est pas une page" > /var/www/holberton/error404.html
+
+rm /etc/nginx/sites-enabled/*
+[ -f /etc/nginx/sites-available/def ] && mv /etc/nginx/sites-available/default /root/default-site
+
+printf "server {
+	   listen 80;
+	   listen [::]:80;
+
+	   server_name bestfound.tech;
+
+	   root /var/www/holberton;
+	   index index.html;
+
+	   location / {
+			   try_files \$uri \$uri/ =404;
+			   add_header X-Served-By \"\$HOSTNAME\";
+	   }
+	   location /redirect_me {
+			   rewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+	   }
+	   error_page 404 /error404.html;
+}
+" | tee /etc/nginx/sites-available/Sebas_config
+ln -s /etc/nginx/sites-available/Sebas_config /etc/nginx/sites-enabled/Sebas_config
+
+service nginx restart
