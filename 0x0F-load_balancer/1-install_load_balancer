@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Install load balancer
+sudo usermod -aG sudo "$(whoami)"
+
+apt update
+apt install -y haproxy
+
+printf "
+
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server 2733-web-01 34.138.21.162:80 check
+   server 2733-web-02 3.82.20.191:80 check
+" | tee -a /etc/haproxy/haproxy.cfg
+service haproxy start
