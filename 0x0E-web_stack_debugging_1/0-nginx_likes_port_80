@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Second project to debug a web server
+sudo rm /etc/nginx/sites-enabled/*
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo service nginx restart
