@@ -14,4 +14,3 @@ else
 		print_message "$1" "$sub"
 	done
 fi
-
