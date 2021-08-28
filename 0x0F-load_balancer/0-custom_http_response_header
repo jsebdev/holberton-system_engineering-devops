@@ -7,11 +7,9 @@ apt -y install nginx
 
 mkdir -p /var/www/holberton
 rm -f /var/www/holberton/*
-echo "Holberton School" > /var/www/holberton/index.html
-echo "Ceci n'est pas une page" > /var/www/holberton/error404.html
 
 rm /etc/nginx/sites-enabled/*
-[ -f /etc/nginx/sites-available/def ] && mv /etc/nginx/sites-available/default /root/default-site
+[ -f /etc/nginx/sites-available/default ] && mv /etc/nginx/sites-available/default /root/default-site
 
 printf "server {
 	   listen 80;
