@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#This scripts run whoami under the user given as the first argument
+
+if [ $# -eq 0 ]
+then
+	whoami
+else
+	su "$1" -s "/bin/bash" -c "whoami"
+fi
