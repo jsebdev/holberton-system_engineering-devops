@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sudo ufw disable
+sudo ufw allow 3306
+sudo ufw enable
+
