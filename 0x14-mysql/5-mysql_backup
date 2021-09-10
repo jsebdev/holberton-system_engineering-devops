@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#make a back-up of the database
+
+if [ "$1" ]
+then
+	mysqldump -u root -p"$1" --all-databases > backup.sql
+else
+	mysqldump -u root --all-databases > backup.sql
+fi
+
+printf -v date_name '%(%d-%m-%Y)T' -1
+tar -czvf "$date_name.tar.gz" backup.sql
