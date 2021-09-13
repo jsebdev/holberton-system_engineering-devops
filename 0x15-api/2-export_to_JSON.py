@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script returns information about an user TODO list progress. 
+This script returns information about an user TODO list progress.
 It receives the user id
 """
 
@@ -33,4 +33,3 @@ if __name__ == "__main__":
 
     with open('{}.json'.format(user_id), "w") as file:
         json.dump(user_dict, file)
-

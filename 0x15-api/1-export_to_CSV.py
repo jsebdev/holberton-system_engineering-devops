@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script returns information about an user TODO list progress. 
+This script returns information about an user TODO list progress.
 It receives the user id
 """
 
